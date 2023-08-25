@@ -5,7 +5,7 @@ export default function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-lg bg-dark">
       <div className="container-fluid ">
-        <a className="navbar-brand text-white fs-3" href="/" >
+        <a className="navbar-brand text-white fs-3" href="#" >
           {props.title}
         </a>
         <button
@@ -25,7 +25,7 @@ export default function Navbar(props) {
               <a
                 className="nav-link active text-white fs-4"
                 aria-current="page"
-                href="/"
+                href="#"
               >
                 Home
               </a>
