@@ -37,7 +37,7 @@ export default function TextForm(props) {
   
     return (
     <>
-      <div className="container my-5">
+      <div className="container-fluid my-5">
       <div className=" my-3 ">
         <h1 className="form-label "> {props.FormHead} </h1>
         <textarea   className="form-control my-2" id="exampleFormControlTextarea1" rows="8" value={text} onChange={handleOnChange}></textarea>
@@ -49,7 +49,7 @@ export default function TextForm(props) {
       <button className="btn btn-success mx-1" onClick={handleCopy}>Copy to Clipboard</button>
       <button className="btn btn-danger mx-1" onClick={handleClear}>Clear Text</button>
       </div>
-      <div className="container my-4">
+      <div className="container-fluid my-4">
         <h1 className={props.TxtStyle}>Text Summary</h1>
         <p className={props.alertStyle}><b>{text===''? (0):(text.split(' ').length)}</b> words And <b>{text.length}</b> characters.</p>
         <p className={props.alertStyle}>Require <b>{0.008* (text===''? (0):(text.split(' ').length))}</b> minutes to read on average</p>

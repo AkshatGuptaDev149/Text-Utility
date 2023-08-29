@@ -10,7 +10,7 @@ function App(){
   const [sectionStyle,setSection]=useState({});
   const [TxtStyle,setTxtStyle]=useState("text-success");
   const[previewStyle,setPStyle]=useState("text-warning my-3");
-  const [btnStyle,setBtnStyle]=useState("btn btn-primary mx-1");
+  const [btnStyle,setBtnStyle]=useState("btn btn-primary mx-1 my-1");
   const [alertStyle,setAlertStyle]=useState("alert alert-primary");
   const [alert,setAlert]=useState(null);
 
@@ -28,7 +28,7 @@ function App(){
     if(colorMode=='normal'){
       setMode('Dark');
       setSection({backgroundColor:"#3a3636",color:"white"});
-      setBtnStyle("btn btn-warning mx-1");
+      setBtnStyle("btn btn-warning mx-1 my-1");
       setTxtStyle("text");
       setPStyle("text my-3");
       setAlertStyle("alert alert-warning");
@@ -37,7 +37,7 @@ function App(){
     else{
       setMode('normal');
       setSection({});
-      setBtnStyle("btn btn-primary mx-1");
+      setBtnStyle("btn btn-primary mx-1 my-1 ");
       setTxtStyle("text-success");
       setPStyle("text-warning my-3");
       setAlertStyle("alert alert-primary");
@@ -45,7 +45,7 @@ function App(){
     }
   }
   return (
-    <section style={sectionStyle}>
+    <section  style={sectionStyle}>
     
     <Navbar title="TextUtils"/>
     <Alert alert={alert} />
