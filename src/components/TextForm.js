@@ -10,8 +10,8 @@ export default function TextForm(props) {
         setText(text.toLowerCase());
     }
     const handleCopy=()=>{
-      props.showAlert('Text is copied to clipboard','success')
-        navigator.clipboard.writeText(text);
+      props.showAlert('Text is copied to clipboard','success');
+      navigator.clipboard.writeText(text);
     }
     const handleCapitalize=()=>{
         let arr=text.split('.');
@@ -37,22 +37,22 @@ export default function TextForm(props) {
   
     return (
     <>
-      <div className="container-fluid my-5">
+      <div className="container my-5">
       <div className=" my-3 ">
         <h1 className="form-label "> {props.FormHead} </h1>
         <textarea   className="form-control my-2" id="exampleFormControlTextarea1" rows="8" value={text} onChange={handleOnChange}></textarea>
       </div>
-      <button className={props.BtnStyle} onClick={handleUpClick}>Convert to UpperCase</button>
-      <button className={props.BtnStyle} onClick={handleLowClick}>Convert to LowerCase</button>
-      <button className={props.BtnStyle} onClick={handleCapitalize}>Capitalize</button>
-      <button className={props.BtnStyle} onClick={handleExtraSpace}>RemoveExtraSpaces</button>
-      <button className="btn btn-success mx-1" onClick={handleCopy}>Copy to Clipboard</button>
-      <button className="btn btn-danger mx-1" onClick={handleClear}>Clear Text</button>
+      <button disabled={text.length===0} className={props.BtnStyle} onClick={handleUpClick}>Convert to UpperCase</button>
+      <button disabled={text.length===0} className={props.BtnStyle} onClick={handleLowClick}>Convert to LowerCase</button>
+      <button disabled={text.length===0} className={props.BtnStyle} onClick={handleCapitalize}>Capitalize</button>
+      <button disabled={text.length===0} className={props.BtnStyle} onClick={handleExtraSpace}>RemoveExtraSpaces</button>
+      <button disabled={text.length===0} className="btn btn-success mx-1" onClick={handleCopy}>Copy to Clipboard</button>
+      <button disabled={text.length===0} className="btn btn-danger mx-1" onClick={handleClear}>Clear Text</button>
       </div>
-      <div className="container-fluid my-4">
+      <div className="container my-4">
         <h1 className={props.TxtStyle}>Text Summary</h1>
-        <p className={props.alertStyle}><b>{text===''? (0):(text.split(' ').length)}</b> words And <b>{text.length}</b> characters.</p>
-        <p className={props.alertStyle}>Require <b>{0.008* (text===''? (0):(text.split(' ').length))}</b> minutes to read on average</p>
+        <p className={props.alertStyle}><b>{text.split(/\s+/).filter((element)=>{return element.length !==0}).length}</b>words and <b>{text.length}</b> characters.</p>
+        <p className={props.alertStyle}>Require <b>{0.008* (text.split(/\s+/).filter((element)=>{return element.length !==0}).length)}</b> minutes to read on average</p>
         <h1 className={props.previewStyle} >Preview</h1>
         <p className="alert alert-secondary">{text}</p>
         </div>
